@@ -1,0 +1,9 @@
+.galleryimage {
+  float: left;
+  max-height: 200px;
+  max-width: 200px;
+  display: block;
+  height: auto;
+  width: auto;
+  padding: 0 5px 10px 5px;
+}
