@@ -3,8 +3,7 @@ A javascript initializer for the photoswipe js library. Depends on JQuery and Ph
 # Usage
 Ćreate a div somewhere on the page and add the following script after loading jquery:
 
-´´´
-<script>
+```javascript
   
 var items = [
   {
@@ -16,5 +15,4 @@ var items = [
 ];
 initGallery($('#your_div_id'), items);
 
-</script>
-´´´
+```
