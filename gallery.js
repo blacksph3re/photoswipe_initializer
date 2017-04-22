@@ -72,26 +72,28 @@ var addHtml = function() {
   return randstring;
 };
 
+
+var openGallery = function(idx, items, pswpElement) {
+  var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+    index: idx
+  });
+  gallery.init();
+};
+
 var addThumbnails = function(parent, items, pswp) {
   var randstring = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+  var pswpElement = document.getElementById(pswp);
+
   for(var idx =0; idx < items.length; idx++) {
     var src = items[idx].src;
     $(parent).append(`
-      <a href="#" id="link${randstring}${idx}" class="gallerylink">
+      <button role="button" id="link${randstring}${idx}" class="gallerylink">
         <img src="${src}" alt="preview" class="galleryimage">
-      </a>
+      </button>
     `);
 
-    var pswpElement = document.getElementById(pswp);
 
-
-    $('#link' + randstring + idx).off('click').click(function() {
-      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-        index: idx
-      });
-      gallery.init();
-    });
-
+    document.getElementById('link' + randstring + idx).onclick = openGallery.bind(null, idx, items, pswpElement);
   }
 }
 
